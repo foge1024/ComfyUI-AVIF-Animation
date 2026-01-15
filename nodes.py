@@ -205,7 +205,12 @@ class AVIFAnimationNode:
                         "type": "output"
                     })
                 
-                return (avif_path,), {"ui": {"images": ui_images}}
+                return {
+                    "result": (avif_path,),
+                    "ui": {
+                        "images": ui_images
+                    }
+                }
                 
             finally:
                 shutil.rmtree(temp_dir, ignore_errors=True)
