@@ -3,7 +3,7 @@ import shutil
 import sys
 
 def check_and_install_avifenc():
-    """检查并自动安装avifenc"""
+    """Check and automatically install avifenc"""
     avifenc_paths = [
         os.path.join(sys.prefix, "Scripts", "avifenc.exe"),
         os.path.join(sys.prefix, "bin", "avifenc"),
@@ -17,18 +17,18 @@ def check_and_install_avifenc():
             break
     
     if not avifenc_exists:
-        print("⚠️  avifenc未找到，尝试自动安装...")
+        print("⚠️  avifenc not found, trying to install automatically...")
         try:
             from .install_avifenc import install_avifenc
             install_avifenc()
         except Exception as e:
-            print(f"❌ 自动安装失败: {e}")
-            print("📋 请手动安装avifenc:")
-            print("1. 访问: https://github.com/AOMediaCodec/libavif/releases")
-            print("2. 下载最新版本的avifenc (Windows x64)")
-            print("3. 解压zip文件")
-            print(f"4. 将avifenc.exe复制到: {os.path.join(sys.prefix, 'Scripts')}")
-            print("5. 重启ComfyUI")
+            print(f"❌ Automatic installation failed: {e}")
+            print("📋 Please manually install avifenc:")
+            print("1. Visit: https://github.com/AOMediaCodec/libavif/releases")
+            print("2. Download latest avifenc (Windows x64)")
+            print("3. Extract zip file")
+            print(f"4. Copy avifenc.exe to: {os.path.join(sys.prefix, 'Scripts')}")
+            print("5. Restart ComfyUI")
 
 check_and_install_avifenc()
 
